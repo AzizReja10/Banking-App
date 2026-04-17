@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a pre-configured axios instance pointing to our Spring Boot backend
 const api = axios.create({
-  baseURL: 'http://localhost:8080',  // Backend URL
+  baseURL: 'https://banking-app-lfky.onrender.com',  // Backend URL
 });
 
 // Request interceptor — adds JWT token to every outgoing request
