@@ -1,6 +1,7 @@
 package com.backend.config;
 
 import org.springframework.context.annotation.Bean;
+import com.backend.config.JwtAuthFilter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,7 +46,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173","http://192.168.1.6:5173/", "http://localhost:3000"));
+        config.setAllowedOrigins(List.of("http://localhost:5173","https://banking-app-lfky.onrender.com/","https://banking-app-lfky.onrender.com/","http://192.168.1.6:5173/", "http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
