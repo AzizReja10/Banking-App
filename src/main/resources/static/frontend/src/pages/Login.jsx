@@ -5,6 +5,7 @@ import {useAuth} from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom';
 const Login = () => {
   const[form,setForm]=useState({username:'',password:''});
+  const[loading,setLoading]=useState(false);
   const[error,setError]=useState('');
   const{login}=useAuth();
   const navigate=useNavigate();
@@ -13,6 +14,7 @@ const Login = () => {
   };
   const handleSubmit=async(e)=>{
     e.preventDefault();
+    setLoading(true);
     setError('');
     try {
       const res=await api.post('/api/auth/login',form);
@@ -71,8 +73,9 @@ const Login = () => {
           <button
             type="submit"
             className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 transform active:scale-[0.98] shadow-lg shadow-indigo-200"
+           disabled={loading}
           >
-            Sign In
+           {loading?'Logging in':'Login'}
           </button>
         </form>
 
