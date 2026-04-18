@@ -45,10 +45,17 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
+  @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173","https://banking-app-lfky.onrender.com","https://banking-app-3-eawx.onrender.com","https://banking-app-lfky.onrender.com/","http://192.168.1.6:5173/", "http://localhost:3000"));
+        config.setAllowedOrigins(List.of(
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "http://192.168.1.6:5173",
+            "https://banking-app-lfky.onrender.com",
+            "https://banking-app-3-eawx.onrender.com",
+            "https://banking-app-5.onrender.com" // <-- Added your new frontend URL
+        ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
